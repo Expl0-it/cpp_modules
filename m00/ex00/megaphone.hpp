@@ -4,6 +4,9 @@
 #include <iostream>
 
 class Megaphone{
+	private:
+		Megaphone();
+		~Megaphone();
 	public:
 		static void	broadcast(int argc, char **argv);
 };
