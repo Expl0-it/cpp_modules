@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 #include "Contact.hpp"
 
 class	PhoneBook {
@@ -8,11 +8,12 @@ class	PhoneBook {
 		void	printContact(int id);
 		void	moveContacts();
 		void	printAll();
-		void	getInput();
+		void	printDetails(int id);
+		void	getInput(std::string output, std::string *input);
 
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void	addContact();
-		void	searchContact();
+		void	add();
+		void	search();
 };
