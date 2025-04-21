@@ -21,11 +21,11 @@ void	PhoneBook::add(){
 		this->_contactCount++;
 	}
 	this->_contacts[new_id].id = new_id;
-	getInput("Enter first name: ", &(this->_contacts[new_id].firstName));
-	getInput("Enter last name: ", &(this->_contacts[new_id].lastName));
-	getInput("Enter nickname: ", &(this->_contacts[new_id].nickname));
-	getInput("Enter number: ", &(this->_contacts[new_id].number));
-	getInput("Enter darkest secret: ", &(this->_contacts[new_id].darksetSecret));
+	noEmptyInput("Enter first name: ", &(this->_contacts[new_id].firstName));
+	noEmptyInput("Enter last name: ", &(this->_contacts[new_id].lastName));
+	noEmptyInput("Enter nickname: ", &(this->_contacts[new_id].nickname));
+	noEmptyInput("Enter number: ", &(this->_contacts[new_id].number));
+	noEmptyInput("Enter darkest secret: ", &(this->_contacts[new_id].darksetSecret));
 }
 
 void	PhoneBook::search(){
@@ -116,3 +116,10 @@ void	PhoneBook::getInput(std::string output, std::string *input){
 	}
 }
 
+void	PhoneBook::noEmptyInput(std::string output, std::string *input){
+	getInput(output, input);
+	while (NULL == input || "" == *input /*|| "\n" == *input*/){
+		std::cout << "Provide valid input" << std::endl;
+		getInput(output, input);
+	}
+}

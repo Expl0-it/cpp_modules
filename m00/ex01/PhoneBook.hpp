@@ -10,6 +10,7 @@ class	PhoneBook {
 		void	printAll();
 		void	printDetails(int id);
 		void	getInput(std::string output, std::string *input);
+		void	noEmptyInput(std::string output, std::string *input);
 
 	public:
 		PhoneBook();
