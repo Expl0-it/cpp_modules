@@ -62,7 +62,7 @@ void	PhoneBook::moveContacts(){
 	}
 }
 
-void	PhoneBook::printDetails(int id){
+void	PhoneBook::printDetails(int id) const {
 	Contact ct = this->_contacts[id];
 
 	std::cout << "Id: " << ct.id << std::endl;
@@ -73,7 +73,7 @@ void	PhoneBook::printDetails(int id){
 	std::cout << "Darkest Secret: " << ct.darksetSecret << std::endl;
 }
 
-void	PhoneBook::printAll(){
+void	PhoneBook::printAll() const {
 	int	i = 0;
 
 	while (i < this->_contactCount) {
@@ -82,7 +82,7 @@ void	PhoneBook::printAll(){
 	}
 }
 
-void	PhoneBook::printContact(int id){
+void	PhoneBook::printContact(int id) const {
 	Contact	ct = this->_contacts[id];
 	
 	std::cout << std::right << std::setw(10) << ct.id << " | ";
