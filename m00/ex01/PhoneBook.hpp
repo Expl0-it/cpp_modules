@@ -5,12 +5,13 @@ class	PhoneBook {
 	private:
 		Contact	_contacts[8];
 		int		_contactCount;
-		void	printContact(int id) const;
-		void	moveContacts();
-		void	printAll() const;
-		void	printDetails(int id) const;
-		void	getInput(std::string output, std::string *input);
-		void	noEmptyInput(std::string output, std::string *input);
+
+		void	_printContact(int id) const;
+		void	_moveContacts();
+		void	_printAll() const;
+		void	_printDetails(int id) const;
+		void	_getInput(std::string output, std::string *input);
+		void	_noEmptyInput(std::string output, std::string *input);
 
 	public:
 		PhoneBook();

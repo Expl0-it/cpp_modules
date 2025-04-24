@@ -14,18 +14,18 @@ void	PhoneBook::add(){
 
 	if (8 == this->_contactCount){
 		new_id = 7;
-		moveContacts();
+		_moveContacts();
 	}
 	else {
 		new_id = this->_contactCount;
 		this->_contactCount++;
 	}
 	this->_contacts[new_id].id = new_id;
-	noEmptyInput("Enter first name: ", &(this->_contacts[new_id].firstName));
-	noEmptyInput("Enter last name: ", &(this->_contacts[new_id].lastName));
-	noEmptyInput("Enter nickname: ", &(this->_contacts[new_id].nickname));
-	noEmptyInput("Enter number: ", &(this->_contacts[new_id].number));
-	noEmptyInput("Enter darkest secret: ", &(this->_contacts[new_id].darksetSecret));
+	_noEmptyInput("Enter first name: ", &(this->_contacts[new_id].firstName));
+	_noEmptyInput("Enter last name: ", &(this->_contacts[new_id].lastName));
+	_noEmptyInput("Enter nickname: ", &(this->_contacts[new_id].nickname));
+	_noEmptyInput("Enter number: ", &(this->_contacts[new_id].number));
+	_noEmptyInput("Enter darkest secret: ", &(this->_contacts[new_id].darksetSecret));
 }
 
 void	PhoneBook::search(){
@@ -33,9 +33,9 @@ void	PhoneBook::search(){
 	std::string 		id;
 	std::stringstream	ss;
 
-	printAll();
+	_printAll();
 
-	getInput("Enter contact index: ", &id);
+	_getInput("Enter contact index: ", &id);
 	ss.clear();
 	if (false == std::isdigit(id[0])){
 		std::cout << "Invalid Index" << std::endl;
@@ -49,10 +49,10 @@ void	PhoneBook::search(){
 		return ;
 	}
 	else
-		printDetails(c_id);
+		_printDetails(c_id);
 }
 
-void	PhoneBook::moveContacts(){
+void	PhoneBook::_moveContacts(){
 	int	i = 1;
 
 	while (i < 8) {
@@ -62,7 +62,7 @@ void	PhoneBook::moveContacts(){
 	}
 }
 
-void	PhoneBook::printDetails(int id) const {
+void	PhoneBook::_printDetails(int id) const {
 	Contact ct = this->_contacts[id];
 
 	std::cout << "Id: " << ct.id << std::endl;
@@ -73,16 +73,16 @@ void	PhoneBook::printDetails(int id) const {
 	std::cout << "Darkest Secret: " << ct.darksetSecret << std::endl;
 }
 
-void	PhoneBook::printAll() const {
+void	PhoneBook::_printAll() const {
 	int	i = 0;
 
 	while (i < this->_contactCount) {
-		printContact(i);
+		_printContact(i);
 		i++;
 	}
 }
 
-void	PhoneBook::printContact(int id) const {
+void	PhoneBook::_printContact(int id) const {
 	Contact	ct = this->_contacts[id];
 	
 	std::cout << std::right << std::setw(10) << ct.id << " | ";
@@ -105,7 +105,7 @@ void	PhoneBook::printContact(int id) const {
 	std::cout << std::endl;
 }
 
-void	PhoneBook::getInput(std::string output, std::string *input){
+void	PhoneBook::_getInput(std::string output, std::string *input){
 	*input = "";
 	while (*input == "" && !std::cin.eof()) {
 		std::cout << output;
@@ -116,10 +116,10 @@ void	PhoneBook::getInput(std::string output, std::string *input){
 	}
 }
 
-void	PhoneBook::noEmptyInput(std::string output, std::string *input){
-	getInput(output, input);
+void	PhoneBook::_noEmptyInput(std::string output, std::string *input){
+	_getInput(output, input);
 	while (NULL == input || "" == *input /*|| "\n" == *input*/){
 		std::cout << "Provide valid input" << std::endl;
-		getInput(output, input);
+		_getInput(output, input);
 	}
 }
