@@ -1,8 +1,5 @@
 #include "HumanB.hpp"
 
-	std::string	_name;
-	Weapon _wpn;
-
 HumanB::HumanB(std::string name) : _name(name), _wpn(NULL){
 	std::cout << "HumanB: " << _name << " doesn't hold a weapon" << std::endl;
 }

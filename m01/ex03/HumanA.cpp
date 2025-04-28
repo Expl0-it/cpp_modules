@@ -1,8 +1,5 @@
 #include "HumanA.hpp"
 
-	std::string	_name;
-	Weapon _wpn;
-
 HumanA::HumanA(std::string name, Weapon &wpn) : _name(name), _wpn(&wpn){
 	std::cout << "HumanA: " << _name << " holds a: " << _wpn->getType() << std::endl;
 }
