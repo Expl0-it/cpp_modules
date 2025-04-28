@@ -5,7 +5,7 @@ HumanA::HumanA(std::string name, Weapon &wpn) : _name(name), _wpn(&wpn){
 }
 
 	HumanA::~HumanA(){
-	std::cout << "HumanA destroyed" << std::endl;
+	std::cout << "HumanA: " << _name << " destroyed" << std::endl;
 }
 
 void	HumanA::setWeapon(Weapon wpn){

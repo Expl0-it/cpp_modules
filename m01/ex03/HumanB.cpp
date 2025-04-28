@@ -9,7 +9,7 @@ HumanB::HumanB(std::string name, Weapon &wpn) : _name(name), _wpn(&wpn){
 }
 
 	HumanB::~HumanB(){
-	std::cout << "HumanB destroyed" << std::endl;
+	std::cout << "HumanB: " << _name << " destroyed" << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon &wpn){

@@ -8,7 +8,7 @@ Weapon::Weapon(std::string type) : _type(type){
 	std::cout << "Weapon of type: " << _type << " created" << std::endl;
 }
 Weapon::~Weapon(){
-	std::cout << "Weapon: " << _type <<  "destroyed" << std::endl;
+	std::cout << "Weapon: " << _type <<  " destroyed" << std::endl;
 }
 
 std::string const	Weapon::getType(void) const{
