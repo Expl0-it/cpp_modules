@@ -3,10 +3,10 @@
 #include <iostream>
 
 class	Weapon{
-	private:
+private:
 	std::string	_type;
 
-	public:
+public:
 	Weapon();
 	Weapon(std::string type);
 	~Weapon();
