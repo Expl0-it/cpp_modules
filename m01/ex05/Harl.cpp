@@ -1,10 +1,10 @@
 #include "Harl.hpp"
 
 Harl::Harl() {
-	levels["DEBUG"] = &Harl::debug;
-	levels["INFO"] = &Harl::info;
-	levels["WARNING"] = &Harl::warning;
-	levels["ERROR"] = &Harl::error;
+	// levels["DEBUG"] = &Harl::debug;
+	// levels["INFO"] = &Harl::info;
+	// levels["WARNING"] = &Harl::warning;
+	// levels["ERROR"] = &Harl::error;
 	std::cout << "Harl created" << std::endl;
 }
 
@@ -12,11 +12,26 @@ Harl::~Harl() {
 	std::cout << "Harl destroyed" << std::endl;
 }
 
-void	Harl::complain(std::string level){
-	if (1 == levels.count(level))
-		(this->*levels[level])();
-	else
-		std::cout << "Unknown level" << std::endl;
+// void	Harl::complain(std::string level){
+// if (1 == levels.count(level))
+// 	(this->*levels[level])();
+// else
+// 	std::cout << "Unknown level" << std::endl;
+// }
+void Harl::complain(std::string level) {
+	typedef void (Harl::*HarlMemFn)(void);
+    HarlMemFn functions[] = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+
+	std::string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+
+	for (int i = 0; i < 4; i++) {
+		if (levels[i] == level) {
+			(this->*functions[i])();
+			return;
+		}
+	}
+
+	std::cout << "Unknown level." << std::endl;
 }
 
 void	Harl::debug(void){

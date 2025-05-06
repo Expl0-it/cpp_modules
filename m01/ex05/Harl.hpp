@@ -10,7 +10,7 @@ public:
 	void	complain(std::string level);
 
 private:
-	std::map<std::string, void (Harl::*)(void)>	levels;
+	// std::map<std::string, void (Harl::*)(void)>	levels;
 
 	void	debug(void);
 	void	info(void);
