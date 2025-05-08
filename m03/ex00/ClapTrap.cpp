@@ -5,7 +5,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _energy(10), _dmg(0
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called on " << _name << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target){
