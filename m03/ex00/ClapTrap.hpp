@@ -4,7 +4,7 @@
 class ClapTrap {
 public:
 	ClapTrap(std::string name);
-	ClapTrap(const ClapTrap &copy);
+	ClapTrap(const ClapTrap &src);
 	ClapTrap &operator=(const ClapTrap &assign);
 	~ClapTrap();
 

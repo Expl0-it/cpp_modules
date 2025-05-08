@@ -1,11 +1,28 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _energy(10), _dmg(0) {
-	std::cout << "Name constructor called with name: " << _name << std::endl;
+ClapTrap::ClapTrap(std::string name)
+: _name(name), _hp(10), _energy(10), _dmg(0) {
+	std::cout << "ClapTrap name constructor called with name: " << _name << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &src)
+//: _name(src._name), _hp(src._hp), _energy(src._energy), _dmg(src._dmg) {
+{
+	*this = src;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap &assign){
+	this->_name = assign._name;
+	this->_hp = assign._hp;
+	this->_energy = assign._energy;
+	this->_dmg = assign._energy;
+	std::cout << "ClapTrap assign operator called" << std::endl;
+	return (*this);
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called on " << _name << std::endl;
+	std::cout << "Destructor called on ClapTrap " << _name << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target){
