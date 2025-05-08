@@ -1,9 +1,0 @@
-Diagnostics:
-  UnusedIncludes: None #Strict
-  MissingIncludes: None
-CompileFlags:
-  Add: [
-    #-I/home/expl0it/Documents/42/minishell/,
-    -Wall, -Wextra, -Werror, -std=c++98
-  ]
-  Compiler: c++
