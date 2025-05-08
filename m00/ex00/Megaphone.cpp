@@ -1,4 +1,4 @@
-#include "megaphone.hpp"
+#include "Megaphone.hpp"
 
 void	Megaphone::broadcast(int argc, char **argv)
 {
