@@ -118,7 +118,9 @@ void	PhoneBook::_getInput(std::string output, std::string *input){
 
 void	PhoneBook::_noEmptyInput(std::string output, std::string *input){
 	_getInput(output, input);
-	while (NULL == input || "" == *input /*|| "\n" == *input*/){
+	while (NULL == input || "" == *input /*|| "\n" == *input*/) {
+		if (std::cin.eof())
+			break ;
 		std::cout << "Provide valid input" << std::endl;
 		_getInput(output, input);
 	}
