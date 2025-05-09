@@ -11,6 +11,7 @@ PhoneBook::~PhoneBook(){
 
 void	PhoneBook::add(){
 	int	new_id;
+	std::string temp;
 
 	if (8 == this->_contactCount){
 		new_id = 7;
@@ -20,12 +21,17 @@ void	PhoneBook::add(){
 		new_id = this->_contactCount;
 		this->_contactCount++;
 	}
-	this->_contacts[new_id].id = new_id;
-	_noEmptyInput("Enter first name: ", &(this->_contacts[new_id].firstName));
-	_noEmptyInput("Enter last name: ", &(this->_contacts[new_id].lastName));
-	_noEmptyInput("Enter nickname: ", &(this->_contacts[new_id].nickname));
-	_noEmptyInput("Enter number: ", &(this->_contacts[new_id].number));
-	_noEmptyInput("Enter darkest secret: ", &(this->_contacts[new_id].darksetSecret));
+	this->_contacts[new_id].setId(new_id);
+	_noEmptyInput("Enter first name: ", &temp);
+	this->_contacts[new_id].setFirstName(temp);
+	_noEmptyInput("Enter last name: ", &temp);
+	this->_contacts[new_id].setLastName(temp);
+	_noEmptyInput("Enter nickname: ", &temp);
+	this->_contacts[new_id].setNickName(temp);
+	_noEmptyInput("Enter number: ", &temp);
+	this->_contacts[new_id].setNumber(temp);
+	_noEmptyInput("Enter darkest secret: ", &temp);
+	this->_contacts[new_id].setDarkestSecret(temp);
 }
 
 void	PhoneBook::search(){
@@ -57,7 +63,7 @@ void	PhoneBook::_moveContacts(){
 
 	while (i < 8) {
 		this->_contacts[i - 1] = this->_contacts[i];
-		this->_contacts[i - 1].id--;
+		this->_contacts[i - 1].setId(i - 1);
 		i++;
 	}
 }
@@ -65,12 +71,12 @@ void	PhoneBook::_moveContacts(){
 void	PhoneBook::_printDetails(int id) const {
 	Contact ct = this->_contacts[id];
 
-	std::cout << "Id: " << ct.id << std::endl;
-	std::cout << "First Name: " << ct.firstName << std::endl;
-	std::cout << "Last Name: " << ct.lastName << std::endl;
-	std::cout << "Nickname: " << ct.nickname << std::endl;
-	std::cout << "Number: " << ct.number << std::endl;
-	std::cout << "Darkest Secret: " << ct.darksetSecret << std::endl;
+	std::cout << "Id: " << ct.getId() << std::endl;
+	std::cout << "First Name: " << ct.getFirstName() << std::endl;
+	std::cout << "Last Name: " << ct.getLastName() << std::endl;
+	std::cout << "Nickname: " << ct.getNickName() << std::endl;
+	std::cout << "Number: " << ct.getNumber() << std::endl;
+	std::cout << "Darkest Secret: " << ct.getDarkestSecret() << std::endl;
 }
 
 void	PhoneBook::_printAll() const {
@@ -85,22 +91,22 @@ void	PhoneBook::_printAll() const {
 void	PhoneBook::_printContact(int id) const {
 	Contact	ct = this->_contacts[id];
 	
-	std::cout << std::right << std::setw(10) << ct.id << " | ";
+	std::cout << std::right << std::setw(10) << ct.getId() << " | ";
 	
-	if (ct.firstName.length() > 10)
-		std::cout << " " << std::right << ct.firstName.substr(0, 9) << "." << " | ";
+	if (ct.getFirstName().length() > 10)
+		std::cout << " " << std::right << ct.getFirstName().substr(0, 9) << "." << " | ";
 	else
-		std::cout << " " << std::right << std::setw(10) << ct.firstName << " | ";
+		std::cout << " " << std::right << std::setw(10) << ct.getFirstName() << " | ";
 
-	if (ct.lastName.length() > 10)
-		std::cout << std::right << std::setw(10) << ct.lastName.substr(0 , 9) << "." << " | ";
+	if (ct.getLastName().length() > 10)
+		std::cout << std::right << std::setw(10) << ct.getLastName().substr(0 , 9) << "." << " | ";
 	else
-		std::cout << " " << std::right << std::setw(10) << ct.lastName << " | ";
+		std::cout << " " << std::right << std::setw(10) << ct.getLastName() << " | ";
 	
-	if (ct.nickname.length() > 10)
-		std::cout << std::right << std::setw(10) << ct.nickname.substr(0 , 9) << "." << "|";
+	if (ct.getNickName().length() > 10)
+		std::cout << std::right << std::setw(10) << ct.getNickName().substr(0 , 9) << "." << "|";
 	else
-		std::cout << std::right << std::setw(10) << ct.nickname << " |";
+		std::cout << std::right << std::setw(10) << ct.getNickName() << " |";
 
 	std::cout << std::endl;
 }
