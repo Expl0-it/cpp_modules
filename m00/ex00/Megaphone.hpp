@@ -12,5 +12,3 @@ class Megaphone{
 };
 
 #endif // !MEGAPHONE_HPP
-
-
