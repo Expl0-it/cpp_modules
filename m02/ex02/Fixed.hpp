@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cmath>
 
+// TODO: Check all ex in this module
 class Fixed {
 public:
 	Fixed();
@@ -12,20 +13,17 @@ public:
 	Fixed &operator=(const Fixed &assign);
 	~Fixed();
 
-	// NOTE: Parameter overloading for non-canonical operators
-	friend std::ostream&	operator << (std::ostream &stream, const Fixed &fix);
+	bool				operator > (const Fixed &other);
+	bool				operator < (const Fixed &other);
+	bool				operator >= (const Fixed &other);
+	bool				operator <= (const Fixed &other);
+	bool				operator == (const Fixed &other);
+	bool				operator != (const Fixed &other);
 
-	friend bool				operator > (const Fixed &fst, const Fixed &snd);
-	friend bool				operator < (const Fixed &fst, const Fixed &snd);
-	friend bool				operator >= (const Fixed &fst, const Fixed &snd);
-	friend bool				operator <= (const Fixed &fst, const Fixed &snd);
-	friend bool				operator == (const Fixed &fst, const Fixed &snd);
-	friend bool				operator != (const Fixed &fst, const Fixed &snd);
-
-	friend Fixed			operator + (const Fixed &fst, const Fixed &snd);
-	friend Fixed			operator - (const Fixed &fst, const Fixed &snd);
-	friend Fixed			operator * (const Fixed &fst, const Fixed &snd);
-	friend Fixed			operator / (const Fixed &fst, const Fixed &snd);
+	Fixed			operator + (const Fixed &other);
+	Fixed			operator - (const Fixed &other);
+	Fixed			operator * (const Fixed &other);
+	Fixed			operator / (const Fixed &other);
 
 	Fixed&					operator ++ ();
 	Fixed					operator ++ (int);
@@ -48,3 +46,4 @@ private:
 	int					_value;
 	static const int	_fractionalBits = 8;
 };
+std::ostream&	operator << (std::ostream &stream, const Fixed &fix);
