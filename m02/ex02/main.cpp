@@ -17,7 +17,7 @@ std::cout << Fixed::max( a, b ) << std::endl;
 
 Fixed c;
 
-std::cout << b / c << std::endl;
+std::cout << a / c << std::endl;
 
 return 0;
 }
