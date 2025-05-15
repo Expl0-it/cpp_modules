@@ -53,49 +53,49 @@ int		Fixed::toInt(void) const {
 	return ((int)this->_value >> _fractionalBits);
 }
 
-bool	operator > (const Fixed &fst, const Fixed &snd){
-	return (fst.getRawBits() > snd.getRawBits());
+bool	Fixed::operator > (const Fixed &other){
+	return (this->getRawBits() > other.getRawBits());
 }
 
-bool	operator < (const Fixed &fst, const Fixed &snd){
-	return (fst.getRawBits() < snd.getRawBits());
+bool	Fixed::operator < (const Fixed &other){
+	return (this->getRawBits() < other.getRawBits());
 }
 
-bool	operator >= (const Fixed &fst, const Fixed &snd){
-	return (fst.getRawBits() >= snd.getRawBits());
+bool	Fixed::operator >= (const Fixed &other){
+	return (this->getRawBits() >= other.getRawBits());
 }
 
-bool	operator <= (const Fixed &fst, const Fixed &snd){
-	return (fst.getRawBits() <= snd.getRawBits());
+bool	Fixed::operator <= (const Fixed &other){
+	return (this->getRawBits() <= other.getRawBits());
 }
 
-bool	operator == (const Fixed &fst, const Fixed &snd){
-	return (fst.getRawBits() == snd.getRawBits());
+bool	Fixed::operator == (const Fixed &other){
+	return (this->getRawBits() == other.getRawBits());
 }
 
-bool	operator != (const Fixed &fst, const Fixed &snd){
-	return (fst.getRawBits() != snd.getRawBits());
+bool	Fixed::operator != (const Fixed &other){
+	return (this->getRawBits() != other.getRawBits());
 }
 
 
-Fixed	operator + (const Fixed &fst, const Fixed &snd){
-	return (fst.toFloat() + snd.toFloat());
+Fixed	Fixed::operator + (const Fixed &other){
+	return (this->toFloat() + other.toFloat());
 }
 
-Fixed	operator - (const Fixed &fst, const Fixed &snd){
-	return (fst.toFloat() - snd.toFloat());
+Fixed	Fixed::operator - (const Fixed &other){
+	return (this->toFloat() - other.toFloat());
 }
 
-Fixed	operator * (const Fixed &fst, const Fixed &snd){
-	return (fst.toFloat() * snd.toFloat());
+Fixed	Fixed::operator * (const Fixed &other){
+	return (this->toFloat() * other.toFloat());
 }
 
-Fixed	operator / (const Fixed &fst, const Fixed &snd){
-	if (snd.toFloat() == 0) {
+Fixed	Fixed::operator / (const Fixed &other){
+	if (other.toFloat() == 0) {
 		std::cout << "Division by 0 error, returning 0" << std::endl;
 		return (0);
 	}
-	return (fst.toFloat() / snd.toFloat());
+	return (this->toFloat() / other.toFloat());
 }
 
 Fixed&	Fixed::operator ++ (){
