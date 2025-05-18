@@ -1,6 +1,6 @@
 #include "Megaphone.hpp"
 
-void	Megaphone::broadcast(int argc, char **argv)
+void	Megaphone::capitalize(int argc, char **argv)
 {
 	int	i = 1;
 	int	j = 0;

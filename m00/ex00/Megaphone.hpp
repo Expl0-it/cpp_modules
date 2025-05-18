@@ -8,7 +8,7 @@ class Megaphone{
 		Megaphone();
 		~Megaphone();
 	public:
-		static void	broadcast(int argc, char **argv);
+		static void	capitalize(int argc, char **argv);
 };
 
 #endif // !MEGAPHONE_HPP
