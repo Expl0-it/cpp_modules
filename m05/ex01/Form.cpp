@@ -7,7 +7,7 @@ Form::Form(std::string name, int signGrade, int executeGrade)
 		throw GradeTooHighException();
 	if (signGrade > 150 || executeGrade > 150)
 		throw GradeTooLowException();
-	std::cout << "Form " << _name << " created with signGrade" << _signGrade << "and execGrade" << executeGrade << std::endl;
+	std::cout << "Form " << _name << " created with signGrade " << _signGrade << " and execGrade " << executeGrade << std::endl;
 }
 
 Form::Form(const Form& src)
@@ -20,8 +20,6 @@ Form&			Form::operator=(const Form& src)
 {
 	if (this != &src) {
 		_signed = src._signed;
-		_signGrade = src._signGrade;
-		_execGrade = src._execGrade;
 	}
 	std::cout << "Form assigment constructor called" << std::endl;
 	return (*this);
@@ -43,7 +41,7 @@ std::ostream&	operator<<(std::ostream& stream, const Form& form)
 
 Form::~Form()
 {
-	std::cout << "Form desturctor called" << std::endl;
+	std::cout << "Form " << _name << " desturctor called" << std::endl;
 }
 
 const std::string	Form::getName() const
