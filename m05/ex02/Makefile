@@ -16,7 +16,6 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -fr $(OBJ)
-	rm file_*
 
 fclean: clean
 	rm -fr $(NAME)
