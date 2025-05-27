@@ -10,7 +10,7 @@ int main (void) {
 	Form medium("medium", 100, 75);
 	Form hard("hard", 50, 1);
 	try {
-		Form rand("random", 150, 0);
+		Form invalid("random", 150, 0);
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
