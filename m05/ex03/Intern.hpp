@@ -15,7 +15,5 @@ public:
 	AForm*	makeForm(std::string formName, std::string formTarget) const;
 
 private:
-	AForm*	_makeShrubberyCreationForm(std::string formTarget) const;
-	AForm*	_makeRobotomyRequestForm(std::string formTarget) const;
-	AForm*	_makePresidentialPardonForm(std::string formTarget) const;
+
 };
