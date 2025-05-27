@@ -23,18 +23,29 @@ Intern::~Intern()
 	std::cout << "Intern destroyed" << std::endl;
 }
 
-AForm*	Intern::makeForm(std::string formName, std::string formTarget) const {
-	// TODO: Implement makeForm
-}
-
-AForm*	Intern::_makeShrubberyCreationForm(std::string formTarget) const {
+static AForm*	_makeShrubberyCreationForm(std::string formTarget) {
 	return (new ShrubberyCreationForm(formTarget));
 }
 
-AForm*	Intern::_makeRobotomyRequestForm(std::string formTarget) const {
+static AForm*	_makeRobotomyRequestForm(std::string formTarget) {
 	return (new RobotomyRequestForm(formTarget));
 }
 
-AForm*	Intern::_makePresidentialPardonForm(std::string formTarget) const {
+static AForm*	_makePresidentialPardonForm(std::string formTarget) {
 	return (new PresidentialPardonForm(formTarget));
+}
+
+AForm*	Intern::makeForm(std::string formName, std::string formTarget) const {
+	AForm* (*creationMethods[])(std::string) =
+		{_makeShrubberyCreationForm, _makeRobotomyRequestForm, _makePresidentialPardonForm};
+	std::string	formNames[] =
+		{"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+	for (unsigned long i = 0; i < sizeof(formNames); i++) {
+		if (formName == formNames[i]) {
+			std::cout << "Intern creates " << formName << std::endl;
+			return (creationMethods[i](formTarget));
+		}
+	}
+	std::cout << "Error: Form " << formName << " does not exist" << std::endl;
+	return (NULL);
 }
