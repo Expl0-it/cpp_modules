@@ -13,7 +13,7 @@ int main (void) {
 	RobotomyRequestForm medium("human");
 	PresidentialPardonForm hard("citizen");
 	try {
-		ShrubberyCreationForm rand("file");
+		ShrubberyCreationForm valid("file");
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
