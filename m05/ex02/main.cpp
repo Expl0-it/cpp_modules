@@ -12,6 +12,11 @@ int main (void) {
 	ShrubberyCreationForm easy("file");
 	RobotomyRequestForm medium("human");
 	PresidentialPardonForm hard("citizen");
+
+	AForm* heap = new PresidentialPardonForm("file2");
+	high.signForm(*heap);
+	delete heap;
+
 	try {
 		ShrubberyCreationForm valid("file");
 	} catch (std::exception& e) {
