@@ -81,6 +81,12 @@ static void			handleFloatingPoing(std::string literal, ScalarConverter::t_vals* 
 	}
 }
 
+static void			handleInt(std::string literal, ScalarConverter::t_vals* vals) {
+	vals->int_val = static_cast<int>(std::atoi(literal.c_str()));
+	vals->float_val = static_cast<float>(vals->int_val);
+	vals->double_val = static_cast<double>(vals->int_val);
+}
+
 void		ScalarConverter::convert(const std::string literal) {
 	ScalarConverter::t_vals vals;
 
