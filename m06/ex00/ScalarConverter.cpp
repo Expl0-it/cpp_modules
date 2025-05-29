@@ -87,6 +87,29 @@ static void			handleInt(std::string literal, ScalarConverter::t_vals* vals) {
 	vals->double_val = static_cast<double>(vals->int_val);
 }
 
+static bool			checkIsNum(std::string literal) {
+	int	i = 0;
+
+	while (true == std::isspace(literal[i]))
+		i++;
+	if (literal[i] == '+' || literal[i] == '-')
+		i++;
+	while (std::isdigit(literal[i]))
+		i++;
+	if ('.' == literal[i])
+		i++;
+	while (std::isdigit(literal[i]))
+		i++;
+	if ('f' == literal[i])
+		i++;
+	while (true == std::isspace(literal[i]))
+		i++;
+	if (0 == literal[i])
+		return (true);
+	else
+		return (false);
+}
+
 void		ScalarConverter::convert(const std::string literal) {
 	ScalarConverter::t_vals vals;
 
