@@ -90,7 +90,7 @@ static void			handleInt(std::string literal, ScalarConverter::t_vals* vals) {
 static bool			checkIsNum(std::string literal) {
 	int	i = 0;
 
-	while (true == std::isspace(literal[i]))
+	while (std::isspace(literal[i]))
 		i++;
 	if (literal[i] == '+' || literal[i] == '-')
 		i++;
@@ -102,7 +102,7 @@ static bool			checkIsNum(std::string literal) {
 		i++;
 	if ('f' == literal[i])
 		i++;
-	while (true == std::isspace(literal[i]))
+	while (std::isspace(literal[i]))
 		i++;
 	if (0 == literal[i])
 		return (true);
@@ -113,7 +113,7 @@ static bool			checkIsNum(std::string literal) {
 static	bool checkIsChar(std::string literal, ScalarConverter::t_vals* vals) {
 	int	i = 0;
 
-	while (true == std::isspace(literal[i]))
+	while (std::isspace(literal[i]))
 		i++;
 	if (std::isprint(literal[i]))
 		i++;
