@@ -148,9 +148,21 @@ static void			printValues(ScalarConverter::t_vals *vals) {
 
 void		ScalarConverter::convert(const std::string literal) {
 	ScalarConverter::t_vals vals;
+	vals.isOk = true;
 
 	if (true == handleSpecial(literal))
 		return ;
-	(void)vals;
+	if (std::string::npos != literal.find("."))
+		handleFloatingPoing(literal, &vals);
+	else
+		handleInt(literal, &vals);
+	vals.char_val = static_cast<char>(vals.int_val);
+	if (true == checkIsNum(literal))
+		vals.isOk = true;
+	else if (true == checkIsChar(literal, &vals))
+		vals.isOk = true;
+	else
+		vals.isOk = false;
+	printValues(&vals);
 }
 
