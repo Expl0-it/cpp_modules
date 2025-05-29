@@ -110,6 +110,24 @@ static bool			checkIsNum(std::string literal) {
 		return (false);
 }
 
+static	bool checkIsChar(std::string literal, ScalarConverter::t_vals* vals) {
+	int	i = 0;
+
+	while (true == std::isspace(literal[i]))
+		i++;
+	if (std::isprint(literal[i]))
+		i++;
+	if (0 == literal[i]) {
+		i --;
+		vals->char_val = literal[i];
+		vals->int_val = static_cast<int>(vals->char_val);
+		vals->float_val = static_cast<float>(vals->char_val);
+		vals->double_val = static_cast<double>(vals->double_val);
+		return (true);
+	}
+	return (false);
+}
+
 void		ScalarConverter::convert(const std::string literal) {
 	ScalarConverter::t_vals vals;
 
