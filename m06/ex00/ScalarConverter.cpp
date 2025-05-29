@@ -68,6 +68,19 @@ static bool			handleSpecial(std::string literal) {
 	return (false);
 }
 
+static void			handleFloatingPoing(std::string literal, ScalarConverter::t_vals* vals) {
+	if (std::string::npos != literal.find("f")) {
+		vals->float_val = static_cast<float>(std::atof(literal.c_str()));
+		vals->double_val = static_cast<double>(vals->float_val);
+		vals->int_val = static_cast<int>(vals->float_val);
+	}
+	else {
+		vals->double_val = static_cast<double>(std::atof(literal.c_str()));
+		vals->float_val = static_cast<float>(vals->double_val);
+		vals->int_val = static_cast<int>(vals->double_val);
+	}
+}
+
 void		ScalarConverter::convert(const std::string literal) {
 	ScalarConverter::t_vals vals;
 
