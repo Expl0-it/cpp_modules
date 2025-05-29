@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <cstdlib>
+#include <iomanip>
 
 class ScalarConverter {
 public:
@@ -11,6 +13,7 @@ public:
 		int		int_val;
 		float	float_val;
 		double	double_val;
+		bool	isOk;
 	}				t_vals;
 
 private:
