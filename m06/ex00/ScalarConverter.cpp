@@ -55,6 +55,10 @@ static void			printSpecial(std::string special) {
 static bool			handleSpecial(std::string literal) {
 	std::string special = "";
 
+	if ("" == literal) {
+		std::cout << "Invalid value" << std::endl;
+		return (true);
+	}
 	special = checkFloatSpecialCase(literal);
 	if ("" != special) {
 		printSpecial(special);
@@ -90,6 +94,8 @@ static void			handleInt(std::string literal, ScalarConverter::t_vals* vals) {
 static bool			checkIsNum(std::string literal) {
 	int	i = 0;
 
+	if (std::isspace(literal[i]) && 0 == literal[i + 1])
+		return (false);
 	while (std::isspace(literal[i]))
 		i++;
 	if (literal[i] == '+' || literal[i] == '-')
@@ -118,7 +124,7 @@ static	bool checkIsChar(std::string literal, ScalarConverter::t_vals* vals) {
 	if (std::isprint(literal[i]))
 		i++;
 	if (0 == literal[i]) {
-		i --;
+		i--;
 		vals->char_val = literal[i];
 		vals->int_val = static_cast<int>(vals->char_val);
 		vals->float_val = static_cast<float>(vals->char_val);
