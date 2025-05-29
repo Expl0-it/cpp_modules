@@ -128,6 +128,24 @@ static	bool checkIsChar(std::string literal, ScalarConverter::t_vals* vals) {
 	return (false);
 }
 
+static void			printValues(ScalarConverter::t_vals *vals) {
+	if (false == vals->isOk) {
+		std::cout << "Invalid value" << std::endl;
+		return ;
+	}
+	if (isascii(vals->char_val)) {
+		if (std::isprint(vals->char_val))
+			std::cout << "char: " << vals->char_val << std::endl;
+		else
+			std::cout << "char: Non displayable" << std::endl;
+	}
+	else
+		std::cout << "char: Non Ascii" << std::endl;
+	std::cout << "int: " << vals->int_val << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << "float: " << vals->float_val << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << "double: " << vals->double_val << std::endl;
+}
+
 void		ScalarConverter::convert(const std::string literal) {
 	ScalarConverter::t_vals vals;
 
