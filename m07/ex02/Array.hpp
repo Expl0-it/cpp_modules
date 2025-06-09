@@ -28,3 +28,5 @@ private:
 	T*				elements;
 	unsigned int	elements_count;
 };
+
+#include "Array.inc.hpp"
