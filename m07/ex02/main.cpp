@@ -1,5 +1,4 @@
 #include "Array.hpp"
-#include "Array.inc.hpp"
 
 int main()
 {	
