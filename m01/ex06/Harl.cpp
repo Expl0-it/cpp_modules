@@ -29,14 +29,11 @@ void	Harl::complain(std::string level){
 }
 
 hu::t_level	Harl::assignEnum(std::string level){
-	if (level == "DEBUG")
-		return (hu::DEBUG);
-	if (level == "INFO")
-		return (hu::INFO);
-	if (level == "WARNING")
-		return (hu::WARNING);
-	if (level == "ERROR")
-		return (hu::ERROR);
+	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (unsigned int i = 0; i < 4; i++) {
+		if (level == levels[i])
+			return ((hu::t_level)i);
+	}
 	return ((hu::t_level)-1);
 }
 

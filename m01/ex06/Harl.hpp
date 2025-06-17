@@ -4,10 +4,10 @@
 
 namespace harl_utils {
 	typedef enum e_level{
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR,
+	DEBUG = 0,
+	INFO = 1,
+	WARNING = 2,
+	ERROR = 3,
 }				t_level;
 };
 
