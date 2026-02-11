@@ -1,6 +1,7 @@
 #include "ArgCheck.hpp"
 
-bool	ArgCheck::checkArgCount(int argc, int expected){
+bool ArgCheck::checkArgCount(int argc, int expected)
+{
 	if (argc != expected)
 	{
 		std::cerr << "Error: Wrong argument count" << std::endl;
